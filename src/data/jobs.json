@@ -4,7 +4,7 @@
     "title": "Frontend Developer",
     "company": "Tech Corp",
     "location": "Bangalore",
-    "salary": "₹8,00,000",
+    "salary": 300000,
     "description": "Build and maintain UI using React."
   },
   {
@@ -12,7 +12,7 @@
     "title": "Backend Developer",
     "company": "Code Inc",
     "location": "Hyderabad",
-    "salary": "₹10,00,000",
+    "salary": 600000,
     "description": "Work with Node.js and MongoDB."
   },
   {
@@ -20,7 +20,7 @@
     "title": "cloud Engineer",
     "company": "Amazon",
     "location": "Ernakulam",
-    "salary": "₹10,000",
+    "salary": 500000,
     "description": "Work with Clouddevelopment."
   },
   {
@@ -28,7 +28,7 @@
     "title": "java Developer",
     "company": "Globosoft",
     "location": "Chennai",
-    "salary": "₹2000000",
+    "salary": 400000,
     "description": "Work with Java Developer."
   }
 ]

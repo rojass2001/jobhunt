@@ -1,42 +1,38 @@
-import { useEffect, useState } from 'react';
-import jobsData from '../data/jobs.json';
-import JobCard from './Jobscard';
+// Importing necessary hooks and components
+import { useEffect } from 'react';
+import jobsData from '../data/jobs.json';         // Sample job data (static JSON file)
+import JobCard from './Jobscard';                 // Component to render each job card
+import { setjoblists } from '../redux/Jobslice';  // Redux action to set job list
+import { useDispatch, useSelector } from 'react-redux'; // Redux hooks for state and dispatch
+import { ClipLoader } from "react-spinners";      // Spinner component for loading UI
 
 export default function JobList() {
-  const [jobs, setJobs] = useState([]);
-  const [query, setQuery] = useState({ title: '', location: '' });
+  const dispatch = useDispatch();
 
+  // Extracting job data from Redux store
+  const { alljobs } = useSelector((state) => state.job);
+
+  // useEffect runs once on mount to populate job list in Redux store
   useEffect(() => {
-    setJobs(jobsData);
+    dispatch(setjoblists(jobsData)); // Dispatching job data to store
   }, []);
-
-  let filteredJobs = jobs.filter(job =>
-    job.title.toLowerCase().includes(query.title.toLowerCase()) &&
-    job.location.toLowerCase().includes(query.location.toLowerCase())
-  );
-
 
   return (
     <div>
-      <div className="flex max-sm:flex-col gap-3 mb-4 px-2">
-        <input
-          placeholder="Job title"
-          className="border p-2"
-          value={query.title}
-          onChange={e => setQuery({ ...query, title: e.target.value })}
-        />
-        <input
-          placeholder="Location"
-          className="border p-2"
-          value={query.location}
-          onChange={e => setQuery({ ...query, location: e.target.value })}
-        />
+      {/* Show loader while job data is empty */}
+      {alljobs.length === 0 &&
+        <div className="w-full py-20 text-center justify-center">
+          <ClipLoader color='blue' size={30} />
+        </div>
+      }
 
-      </div>
+      {/* Job list grid */}
       <div className="grid gap-4 grid-cols-1 sm:grid-cols-2">
-        {filteredJobs.map(job => <JobCard key={job.id} job={job} />)}
+        {/* Mapping over job data and rendering JobCard for each */}
+        {alljobs?.map(job => (
+          <JobCard key={job.id} job={job} />
+        ))}
       </div>
     </div>
   );
 }
-
