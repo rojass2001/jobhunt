@@ -14,7 +14,7 @@ function Filter() {
 
       {/* Show a message if no matching jobs are found */}
       {filterjobs.length === 0 && (
-        <p className="text-gray-500">No search found.</p>
+        <p className="text-gray-500 max-sm:text-center">No search found.</p>
       )}
 
       {/* Display filtered job cards in a responsive grid */}

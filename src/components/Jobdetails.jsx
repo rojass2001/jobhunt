@@ -17,7 +17,7 @@ export default function JobDetails({ job, onClose }) {
         <p><strong>Location:</strong> {job.location}</p>
 
         {/* Job Salary */}
-        <p><strong>Salary:</strong> {job.salary}</p>
+        <p><strong>Salary:</strong>₹{job.salary}</p>
 
         {/* Job Description */}
         <p className="mt-4">{job.description}</p>
