@@ -13,7 +13,7 @@ export default function FavoritesPage() {
   }, []);
 
   return (
-    <div className='text-center place-items-center w-full'>
+    <div className=''>
       <h2 className="text-2xl font-bold mb-4">Favorite Jobs</h2>
       {favorites.length === 0? <p className="text-gray-500">No favorite jobs found.</p>:
       <div className="grid gap-4 grid-cols-1 sm:grid-cols-2">

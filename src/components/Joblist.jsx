@@ -32,7 +32,6 @@ export default function JobList() {
           onChange={e => setQuery({ ...query, location: e.target.value })}
         />
 
-       
       </div>
       <div className="grid gap-4 grid-cols-1 sm:grid-cols-2">
         {filteredJobs.map(job => <JobCard key={job.id} job={job} />)}
