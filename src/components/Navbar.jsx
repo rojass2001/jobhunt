@@ -18,7 +18,7 @@ const[location,setlocation]=useState(locations.pathname)
       <NavLink
       
       
-         to="/"
+         to="/jobhunt"
         className={({ isActive }) =>
           `relative ${isActive ? 'after:absolute after:-bottom-1 after:left-0 after:w-full after:h-1 after:bg-white' : ''}`
         }>
