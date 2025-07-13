@@ -1,40 +1,40 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { Link, NavLink, useLocation } from 'react-router-dom';
 
 function Navbar() {
   // State to track which page is currently active
   const [currentPage, setCurrentPage] = useState("Home");
-
+ const locations=useLocation()
+const[location,setlocation]=useState(locations.pathname)
+ useEffect(()=>{
+  setlocation(locations.pathname)
+ },[locations.pathname])
   return (
     <nav className="flex gap-4 py-4 items-center px-2 text-white font-bold bg-blue-900 mb-4">
       {/* Brand or Logo */}
       <h1 className="text-2xl font-bold mr-2 lg:mr-6">JobHunt</h1>
 
       {/* Home Link */}
-      <Link
-        to="/"
-        className="relative"
-        onClick={() => setCurrentPage("Home")}
-      >
-        Home
-        {/* Show underline if Home is active */}
-        {currentPage === "Home" && (
-          <span className="absolute -bottom-1 left-0 w-full h-1 bg-white"></span>
-        )}
-      </Link>
+      <NavLink
+      
+      
+         to="/"
+        className={({ isActive }) =>
+          `relative ${isActive ? 'after:absolute after:-bottom-1 after:left-0 after:w-full after:h-1 after:bg-white' : ''}`
+        }>
+          Home
+      </NavLink>
 
       {/* Favourites Link */}
-      <Link
+      <NavLink
         to="/favorites"
-        className="relative"
-        onClick={() => setCurrentPage("Favourites")}
-      >
+        className={({ isActive }) =>
+          `relative ${isActive ? 'after:absolute after:-bottom-1 after:left-0 after:w-full after:h-1 after:bg-white' : ''}`
+        }>
+      
         Favourites
-        {/* Show underline if Favourites is active */}
-        {currentPage === "Favourites" && (
-          <span className="absolute -bottom-1 left-0 w-full h-1 bg-white"></span>
-        )}
-      </Link>
+        
+      </NavLink>
     </nav>
   );
 }
