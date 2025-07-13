@@ -3,7 +3,8 @@ import { createSlice } from "@reduxjs/toolkit"
 // Initial state structure
 const INITIAL_STATE = {
   alljobs: [],        // Original list of all jobs
-  filterjobs: [],    // Filtered list to display based on price/search
+  filterjobs: [],
+  favouritejob:[]    // Filtered list to display based on price/search
 };
 
 const jobslice = createSlice({
@@ -44,15 +45,18 @@ const jobslice = createSlice({
       );
     },
 
-   
-   
+  
+
+
+  
    
   }
+  
 });
 
 // Export actions and reducer
 export const {
-  setjoblists,searchjobstitle,pricefilter,searchjobslocation
+  setjoblists,pricefilter,searchjobslocation,searchjobstitle
   
 } = jobslice.actions;
 

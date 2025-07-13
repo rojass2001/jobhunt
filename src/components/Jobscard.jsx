@@ -1,46 +1,45 @@
 // Importing React's useState hook and the JobDetails modal component
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import JobDetails from './Jobdetails';
 
+
 export default function JobCard({ job }) {
-  // State to control visibility of the JobDetails modal
-  const [showModal, setShowModal] = useState(false);
+ const[showModal, setShowModal] = useState(false);
+  const [favs, setFavs] = useState([]);
 
-  // State to store list of favorite job IDs from localStorage
-  const [favorites, setFavorites] = useState(() =>
-    JSON.parse(localStorage.getItem('favorites') || '[]')
-  );
+  useEffect(() => {
+    const stored = JSON.parse(localStorage.getItem('favourites')) || [];
+    setFavs(stored.map(job => job.id));
+  }, []);
 
-  // Function to add or remove a job from favorites
-  const toggleFavorite = () => {
-    let updated;
+  const handleFavourite = (job) => {
+    let favs = JSON.parse(localStorage.getItem('favourites')) || [];
 
-    // If job is already a favorite, remove it
-    if (favorites.includes(job.id)) {
-      updated = favorites.filter(id => id !== job.id);
+    const exists = favs.find((item) => item.id === job.id);
+    if (!exists) {
+      favs.push(job);
+      setFavs([...favs, job.id]);
+      localStorage.setItem('favourites', JSON.stringify(favs));
+      alert('Job added to favourites!');
     } else {
-      // If not, add it
-      updated = [...favorites, job.id];
+      alert('Already in favourites');
     }
-
-    // Update local state and persist in localStorage
-    setFavorites(updated);
-    localStorage.setItem('favorites', JSON.stringify(updated));
   };
 
+  
   return (
     <div className="border p-5 rounded">
       {/* Job title */}
-      <h3 className="text-xl font-bold">{job.title}</h3>
+      <h3 className="text-xl font-bold">{job?.title}</h3>
 
       {/* Company name */}
-      <p>{job.company}</p>
+      <p>{job?.company}</p>
 
       {/* Job location */}
-      <p>{job.location}</p>
+      <p>{job?.location}</p>
 
       {/* Salary if available */}
-      {job.salary && <p>Salary: ₹{job.salary}</p>}
+      {job?.salary && <p>Salary: ₹{job.salary}</p>}
 
       {/* Buttons: View Details and Favorite/Unfavorite */}
       <div className="flex gap-2 mt-2">
@@ -52,12 +51,12 @@ export default function JobCard({ job }) {
         </button>
 
         <button
-          onClick={toggleFavorite}
+        onClick={()=> handleFavourite(job)}
           className="bg-yellow-500 px-2 py-1 rounded"
         >
-          {/* Toggle text based on favorite status */}
-          {favorites.includes(job.id) ? 'Unfavorite' : 'Favorite'}
+          {favs?.includes(job.id) ? 'Favorited' : 'Favorite'}
         </button>
+        
       </div>
 
       {/* Show JobDetails modal if showModal is true */}

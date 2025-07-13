@@ -6,7 +6,10 @@ import Navbar from './components/Navbar';       // Top navigation bar
 import Filter from './Pages/Filter';            // Page showing filtered job results
 import Searchsection from './components/Searchsection'; // Search + filter controls
 
+
 export default function App() {
+  
+  
   return (
     // Setting up React Router for navigation
     <Router>

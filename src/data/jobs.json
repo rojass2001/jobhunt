@@ -19,16 +19,32 @@
     "id": 3,
     "title": "cloud Engineer",
     "company": "Amazon",
-    "location": "Ernakulam",
+    "location": "Bangalore",
     "salary": 500000,
     "description": "Work with Clouddevelopment."
   },
   {
     "id": 4,
-    "title": "java Developer",
+    "title": "React Developer",
     "company": "Globosoft",
-    "location": "Chennai",
+    "location": "Ernakulam",
     "salary": 400000,
-    "description": "Work with Java Developer."
+    "description": "Work with React Developer."
+  },
+  {
+    "id": 5,
+    "title": "kotlin Developer",
+    "company": "Microsoft",
+    "location": "Chennai",
+    "salary": 800000,
+    "description": "Work with kotlin Developer."
+  },
+  {
+    "id": 6,
+    "title": "flutter Developer",
+    "company": "Apple",
+    "location": "Hyderabad",
+    "salary": 800000,
+    "description": "Work with flutter Developer."
   }
 ]

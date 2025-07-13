@@ -1,22 +1,22 @@
-import { useEffect, useState } from 'react';
-import jobsData from '../data/jobs.json';       // Static job data source
+import { useEffect, useState } from 'react';    // Static job data source
 import JobCard from '../components/Jobscard';   // Reusable job card component
-
+import Favouritecard from '../components/Favouritecard';
+import { Link } from 'react-router-dom';
 export default function FavoritesPage() {
-  // State to hold the list of favorite jobs
-  const [favorites, setFavorites] = useState([]);
+  // State to hold favorite jobs
+ const [favs, setFavs] = useState([]);
 
-  // useEffect runs once when the component mounts
   useEffect(() => {
-    // Get favorite job IDs from localStorage
-    const favIds = JSON.parse(localStorage.getItem('favorites') || '[]');
-
-    // Filter jobs from jobsData that match the favorite IDs
-    const favJobs = jobsData.filter(job => favIds.includes(job.id));
-
-    // Set the filtered jobs as favorites
-    setFavorites(favJobs);
+    const stored = JSON.parse(localStorage.getItem('favourites')) || [];
+    setFavs(stored);
   }, []);
+
+  const handleRemove = (id) => {
+    const updated = favs.filter((job) => job.id !== id);
+    localStorage.setItem('favourites', JSON.stringify(updated));
+    setFavs(updated);
+  };
+
 
   return (
     <div className=''>
@@ -24,16 +24,17 @@ export default function FavoritesPage() {
       <h2 className="text-2xl font-bold mb-4">Favorite Jobs</h2>
 
       {/* Show message if no favorites are found */}
-      {favorites.length === 0
-        ? <p className="text-gray-500">No favorite jobs found.</p>
-        
-        // Render the favorite jobs in a responsive grid
-        : <div className="grid gap-4 grid-cols-1 sm:grid-cols-2">
-            {favorites.map(job => (
-              <JobCard key={job.id} job={job} />
+   
+      {favs?.length ===0&& <p className="text-gray-500">No favorite jobs found.</p>
+      
+      
+}
+         <div className="grid gap-4 grid-cols-1 sm:grid-cols-2">
+            {favs?.map(job => (
+              <Favouritecard handledelete={()=>handleRemove(job.id)}  key={job.id} job={job} />
             ))}
           </div>
-      }
+      
     </div>
   );
 }
