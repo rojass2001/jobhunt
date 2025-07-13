@@ -22,7 +22,7 @@ export default function JobList() {
   }, []);
 
   return (
-    <div>
+    <div className='max-sm:px-2'>
       {/* Show loader while job data is empty */}
       {jobs.length === 0 &&
         <div className="w-full py-20 text-center justify-center">
@@ -37,7 +37,7 @@ export default function JobList() {
           <JobCard key={job.id} job={job} />
         ))}
       </div>
-      
+
     </div>
   );
 }
