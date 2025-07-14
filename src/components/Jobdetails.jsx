@@ -2,7 +2,7 @@
 export default function JobDetails({ job, onClose }) {
   return (
     // Full-screen overlay with dark background
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+    <div className="fixed inset-0 px-2 bg-white flex items-center justify-center">
       
       {/* Modal box */}
       <div className="bg-white p-6 rounded shadow max-w-md w-full">
@@ -21,6 +21,9 @@ export default function JobDetails({ job, onClose }) {
 
         {/* Job Description */}
         <p className="mt-4">{job.description}</p>
+
+         {/* Job Deadline */}
+         <p className="mt-4 text-gray-500"><strong>Application Deadline:</strong>{job.Deadline}</p>
 
         {/* Close button to dismiss the modal */}
         <button

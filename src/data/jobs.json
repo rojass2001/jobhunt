@@ -5,6 +5,7 @@
     "company": "Tech Corp",
     "location": "Bangalore",
     "salary": 300000,
+    "Deadline":"12/08/2025",
     "description": "Build and maintain UI using React."
   },
   {
@@ -13,6 +14,7 @@
     "company": "Code Inc",
     "location": "Hyderabad",
     "salary": 600000,
+    "Deadline":"16/07/2025",
     "description": "Work with Node.js and MongoDB."
   },
   {
@@ -21,6 +23,7 @@
     "company": "Amazon",
     "location": "Bangalore",
     "salary": 500000,
+    "Deadline":"24/07/2025",
     "description": "Work with Clouddevelopment."
   },
   {
@@ -29,6 +32,7 @@
     "company": "Globosoft",
     "location": "Ernakulam",
     "salary": 400000,
+    "Deadline":"28/07/2025",
     "description": "Work with React Developer."
   },
   {
@@ -37,6 +41,7 @@
     "company": "Microsoft",
     "location": "Chennai",
     "salary": 800000,
+    "Deadline":"22/07/2025",
     "description": "Work with kotlin Developer."
   },
   {
@@ -45,6 +50,7 @@
     "company": "Apple",
     "location": "Hyderabad",
     "salary": 800000,
+    "Deadline":"25/07/2025",
     "description": "Work with flutter Developer."
   }
 ]
