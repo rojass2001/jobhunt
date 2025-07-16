@@ -1,17 +1,7 @@
-import React, { useEffect, useState } from 'react';
-import { Link, NavLink, useLocation } from 'react-router-dom';
-import Sidebar from './Sidebar';
+import { Link, NavLink} from 'react-router-dom';
 
 function Navbar() {
-  // State to track which page is currently active
-  const [sidebar, setsidebar] = useState(false);
-
-useEffect(()=>{
-document.body.style.overflow=sidebar?'hidden':'auto'
-document.documentElement.style.overflow=sidebar?'hidden':'auto'
-
-},[sidebar])
-
+ 
   return (
     <header className="">
     <nav className="flex gap-4 py-4 items-center px-2 text-white font-bold bg-blue-900 mb-4">
@@ -39,11 +29,9 @@ document.documentElement.style.overflow=sidebar?'hidden':'auto'
         Favourites
         
       </NavLink>
-      <div className="lg:hidden" onClick={()=>setsidebar(!sidebar)}>sidebar</div>
+      
     </nav>
-    {sidebar&&
-    <Sidebar close={()=>setsidebar(false)}/>
-}
+    
     </header>
   );
 }

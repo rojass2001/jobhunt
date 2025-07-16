@@ -5,7 +5,7 @@ import FavoritesPage from './Pages/Favourite';  // Page showing favorite jobs
 import Navbar from './components/Navbar';       // Top navigation bar
 import Filter from './Pages/Filter';            // Page showing filtered job results
 import Searchsection from './components/Searchsection'; // Search + filter controls
-import Sidebar from './components/Sidebar';
+
 
 
 export default function App() {

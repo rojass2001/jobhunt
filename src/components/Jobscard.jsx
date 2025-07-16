@@ -59,7 +59,7 @@ export default function JobCard({ job }) {
         onClick={()=> handleFavourite(job)}
           className="bg-yellow-500 px-2 py-1 rounded"
         >
-          {favs?.includes(job.id) ? 'unFavourite' : 'Favorite'}
+          {favs?.includes(job.id) ? 'unFavourite' : 'Favourite'}
         </button>
         
       </div>
