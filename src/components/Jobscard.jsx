@@ -20,10 +20,15 @@ export default function JobCard({ job }) {
       favs.push(job);
       setFavs([...favs, job.id]);
       localStorage.setItem('favourites', JSON.stringify(favs));
-      alert('Job added to favourites!');
-    } else {
-      alert('Already in favourites');
+      alert(`${job.title} successfully added to favourites!`);
+    } 
+    else {
+       const updated=favs.filter((jobs) => jobs.id !== job.id)
+       localStorage.setItem('favourites', JSON.stringify(updated));
+       setFavs(updated.map(job=>job.id))
+       alert(`${job.title} successfully remove from favourites!`)
     }
+
   };
 
   
@@ -54,7 +59,7 @@ export default function JobCard({ job }) {
         onClick={()=> handleFavourite(job)}
           className="bg-yellow-500 px-2 py-1 rounded"
         >
-          {favs?.includes(job.id) ? 'Favorited' : 'Favorite'}
+          {favs?.includes(job.id) ? 'unFavourite' : 'Favorite'}
         </button>
         
       </div>

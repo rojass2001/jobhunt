@@ -22,7 +22,7 @@ export default function JobList() {
   }, []);
 
   return (
-    <div className='max-sm:px-2'>
+    <div className='px-2 py-1'>
       {/* Show loader while job data is empty */}
       {jobs.length === 0 &&
         <div className="w-full py-20 text-center justify-center">

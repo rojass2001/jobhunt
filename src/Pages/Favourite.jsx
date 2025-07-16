@@ -12,10 +12,11 @@ export default function FavoritesPage() {
     setFavs(stored);
   }, []);
 
-  const handleRemove = (id) => {
-    const updated = favs.filter((job) => job.id !== id);
+  const handleRemove = (jobs) => {
+    const updated = favs.filter((job) => job.id !== jobs.id);
     localStorage.setItem('favourites', JSON.stringify(updated));
     setFavs(updated);
+    alert(`${jobs.title} Successfully removed from favorites!`);
   };
 
 
@@ -32,7 +33,7 @@ export default function FavoritesPage() {
 }
          <div className="grid gap-4 grid-cols-1 sm:grid-cols-2">
             {favs?.map(job => (
-              <Favouritecard handledelete={()=>handleRemove(job.id)}  key={job.id} job={job} />
+              <Favouritecard handledelete={()=>handleRemove(job)}  key={job.id} job={job} />
             ))}
           </div>
       
